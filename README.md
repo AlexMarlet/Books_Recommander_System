@@ -97,8 +97,8 @@ Problem: Mixed ISBN formats
 Multiple ISBNs per entry: 9782871303336; 2871303339
 ISBN-10 and ISBN-13 mixed
 Inconsistent separators and formatting
-Solution:
 
+Solution:
 Split multiple ISBNs by semicolon
 Extract digits only
 Keep first 13-digit ISBN starting with 978 or 979
@@ -117,19 +117,16 @@ After:  "9782871303336"
 Purpose: Find ISBNs for 742 books missing them
 
 Strategy:
-
 Query Google Books API by Title + Author
 Fallback to OpenLibrary API if not found
 Extract ISBN-13 from results
-Rate Limiting:
-
 
 Result:
 ISBNs Found: 146
 Still Missing: 596
 Success Rate: 19.7%
-Impact:
 
+Impact:
 Total with ISBN: 14,511 books (96.04%)
 Final Missing: 598 books (3.96%)
 
@@ -291,12 +288,15 @@ No subject metadata in APIs
 Books without standardized categorization
 
 
-## 🚀 Using the Enriched Dataset
+## Using the Enriched Dataset
 File Structure
 Kaggle_datas/
-├── items_enriched.csv          # ← USE THIS (enriched dataset)
-├── interactions.csv            # User-book interactions
-└── all_in_one_enrichment.py   # Enrichment pipeline (reference)
+-> items_enriched.csv          # ← USE THIS (enriched dataset)
+-> interactions.csv            # User-book interactions
+-> all_in_one_enrichment.py   # Enrichment pipeline (reference)
+
+I first did the enrichment / Cleanning with each part in a different files so i can rerun only one part of the all process (to avoid running again an API call of 18 000 calls (Which can last ≈8 hours 😅) 
+But in order to make it simple and clear in this repository i merged them all in the "all_in_one_enrichement.py" file so if you want to try the recommender system from the real original dataset "items.csv" and loose ≈20h to 35h instead of using the already clean/enriched version of the data base named "items_enriched.csv" you can...
 
 ### The variables dictionnary 
 - For items_enriched
