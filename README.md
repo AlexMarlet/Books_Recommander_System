@@ -203,11 +203,11 @@ Missing: 2,196 books (14.53%)
 Example:
 Subjects:  "Histoires de vie en sociologie; Sciences sociales; Méthodologie"
 Category:  "History; Science; Social Science; Sociology"
-Step 7: Category Enrichment via APIs
+
+### Step 7: Category Enrichment via APIs
 Purpose: Find categories for 2,196 books without them
 
 Strategy (Cascading):
-
 Query Google Books API (by ISBN or Title+Author)
 Extract 
 categories
@@ -233,7 +233,6 @@ Step 8: Author Enrichment via APIs
 Purpose: Find authors for books missing them
 
 Initial State:
-
 Missing Authors: 2,632 books (17.42%)
 Strategy (Cascading):
 
@@ -246,8 +245,8 @@ Process:
 Queried 2,632 books
 Rate limiting: 0.4s delay
 Total time: ~18 minutes
-Result:
 
+Result:
 Authors Found: 2,057
 Still Missing: 575
 Success Rate: 78.2%
@@ -256,7 +255,11 @@ Final Author Column:
 Total Coverage: 14,534 books (96.19%)
 Missing: 575 books (3.81%)
 Improvement: +13.61 percentage points
-📊 Final Dataset Statistics
+
+## 📊 Final Dataset Statistics
+
+<img width="615" height="439" alt="Capture d’écran 2025-12-07 à 14 24 40" src="https://github.com/user-attachments/assets/c8e27383-e400-4987-9be9-c4854d00791d" />
+
 Complete Before/After Comparison
 Column	Before	After	Improvement
 Total Books	15,291	15,109	-182 (filtered)
