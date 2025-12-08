@@ -350,9 +350,9 @@ Result: A clean, feature-rich dataset suitable for building high-quality recomme
 
 Important points:
 - A user is more likely to borrow again a book that he already borrowed
-- If a user A borrow the book 1 and the user B also borrowed the book 1, then if the the user A borrow the book 2, the user B is likely to borrow the book 2 also
+- If a user A borrow the book 1 and the user B also borrowed the book 1, then if the the user A borrow the book 2, the user B is likely to borrow the book 2 also (User-User similarity)
 - A book borrowed long ago should have less wheight on the recommendation than a book recently borrowed
-
+- If a book 1 is borrowed by a User A, and a book 2 is very similar to the book 1 then the user A is more likely to borrow it also (Item-Item similarity)
 
 
 
