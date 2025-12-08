@@ -4,8 +4,6 @@ DATA ENRICHMENT PIPELINE
 This script contains ALL data cleaning and enrichment operations.
 Run this ONCE locally to create items_enriched.csv.
 
-DO NOT include this in Kaggle submission - only use the resulting items_enriched.csv
-
 Steps performed:
 1. Filter borrowed books only
 2. Clean ISBN column
@@ -18,7 +16,6 @@ Steps performed:
 9. Find missing authors via APIs
 10. Fix format (remove .0 decimals)
 
-Runtime: ~3-4 hours total
 """
 
 import pandas as pd
