@@ -348,9 +348,10 @@ Result: A clean, feature-rich dataset suitable for building high-quality recomme
 
 # The Recommender System
 
-
-
-
+Important points:
+- A user is more likely to borrow again a book that he already borrowed
+- If a user A borrow the book 1 and the user B also borrowed the book 1, then if the the user A borrow the book 2, the user B is likely to borrow the book 2 also
+- A book borrowed long ago should have less wheight on the recommendation than a book recently borrowed
 
 
 
