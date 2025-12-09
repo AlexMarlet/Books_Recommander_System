@@ -372,15 +372,12 @@ We tested 48 different combinations of these three parameters:
 #### 1. Recency Decay ($\alpha$)
 What it does: Controls how fast a book's value drops over time.
 Formula: $Score = \frac{1}{(days_ago + 1)^\alpha}$
-
 The Test: We tried 0.3 (Slow decay), 0.5 (Medium), 0.7 (Fast), 1.0 (Very Fast).
 The Winner: 0.7.
 Meaning: Users in this dataset care a lot about what they read very recently. A book read yesterday is worth much more than one read last week.
 #### 2. Similarity Threshold
 What it does: Controls who qualifies as your "Neighbor".
-
 The Test: We tried 0.01 (Loose), 0.05 (Standard), 0.1 (Strict).
-
 The Winner: 0.05.
 Meaning: We need a balance. If we are too strict (0.1), we find no neighbors. If too loose (0.01), we get noisy neighbors. 5% overlap is the "Goldilocks" zone.
 #### 3. History Weight ($w$)
@@ -388,12 +385,10 @@ What it does: Controls the balance between Habit (Your History) and Discovery (N
 Formula: $Final = w \cdot History + (1-w) \cdot Discovery$
 
 The Test: We tried 0.3 (Trust Neighbors), 0.5 (Balanced), 0.7 (Trust Self), 0.9 (Trust Self Heavily).
-
 The Winner: 0.9.
 Meaning: This is the most critical finding. 90% of the signal comes from your own history. The "Social" signal is useful, but only as a 10% "spice" on top of the strong "Habit" main course.
 
 The Final Mathematical Model
-
 With these optimal parameters, the final scoring function is:
 $$Score(u, i) = 0.9\cdot\underbrace{\left(\sum\frac{1}{(t+1)^{0.7}}\right)}{\text{Your Habit}} + 0.1\cdot\underbrace{\left(\sum{v\in Neighbors} Sim(u,v)\cdot Score_v(i)\right)}_{\text{Social Discovery}}$$
 
