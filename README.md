@@ -388,7 +388,7 @@ The Test: We tried 0.3 (Trust Neighbors), 0.5 (Balanced), 0.7 (Trust Self), 0.9 
 The Winner: 0.9.
 Meaning: This is the most critical finding. 90% of the signal comes from your own history. The "Social" signal is useful, but only as a 10% "spice" on top of the strong "Habit" main course.
 
-The Final Mathematical Model
+#### The Final Mathematical Model
 With these optimal parameters, the final scoring function is:
 $$Score(u, i) = 0.9\cdot\underbrace{\left(\sum\frac{1}{(t+1)^{0.7}}\right)}{\text{Your Habit}} + 0.1\cdot\underbrace{\left(\sum{v\in Neighbors} Sim(u,v)\cdot Score_v(i)\right)}_{\text{Social Discovery}}$$
 
