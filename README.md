@@ -389,7 +389,7 @@ Meaning: This is the most critical finding. 90% of the signal comes from your ow
 The Final Mathematical Model
 
 With these optimal parameters, the final scoring function is:
-$$ Score(u, i) = 0.9 \cdot \underbrace{\left( \sum \frac{1}{(t+1)^{0.7}} \right)}{\text{Your Habit}} + 0.1 \cdot \underbrace{\left( \sum{v \in Neighbors} Sim(u,v) \cdot Score_v(i) \right)}_{\text{Social Discovery}} $$
+$$Score(u, i) = 0.9 \cdot \underbrace{\left( \sum \frac{1}{(t+1)^{0.7}} \right)}{\text{Your Habit}} + 0.1 \cdot \underbrace{\left( \sum{v \in Neighbors} Sim(u,v) \cdot Score_v(i) \right)}_{\text{Social Discovery}}$$
 
 
 
