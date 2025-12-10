@@ -19,7 +19,7 @@ Key Achievements
 
 Total API Calls: ~18,000
 
-📁 Dataset Overview
+Dataset Overview
 Original Dataset
 Source: items.csv (15,291 books)
 Interactions: interactions.csv (87,047 user-book interactions)
@@ -252,7 +252,7 @@ Total Coverage: 14,534 books (96.19%)
 Missing: 575 books (3.81%)
 Improvement: +13.61 percentage points
 
-## 📊 Final Dataset Statistics
+## Final Dataset Statistics
 
 <img width="615" height="439" alt="Capture d’écran 2025-12-07 à 14 24 40" src="https://github.com/user-attachments/assets/c8e27383-e400-4987-9be9-c4854d00791d" />
 
@@ -262,7 +262,7 @@ Improvement: +13.61 percentage points
 ### API Usage Summary
 <img width="611" height="310" alt="Capture d’écran 2025-12-07 à 14 26 41" src="https://github.com/user-attachments/assets/6452e424-34ea-4479-bcda-12c681602ea2" />
 
-## 🎯 Why Remaining Data is Missing
+## Why Remaining Data is Missing
 Books Still Missing Data
 ISBN (598 books - 3.96%):
 
@@ -352,8 +352,9 @@ We have changed the time format to an understandable one
 Then create to new file: 
 - "user_borrowing_history.csv" that gives us all the books borrowed by each user and the date of every of the interaction
 - "book_user_history.csv" that give for every books all the user that borrowed them and the date of the interactions as well
-
+  
 # The Recommender System
+The baseline is a @MAP10 score of 0.15283
 
 Important points:
 - A user is more likely to borrow again a book that he already borrowed
@@ -365,6 +366,61 @@ Important points:
 We found that 26.47% of all interactions are re-borrows. Whiche is very important as some model systematicly exclude already borrowed books thinking Users would like new books. But it's not the case. 
 
 ## Our best recommender at the moment:
+That achieve to get @MAP10 of 0.16815 (which is 10,02420991% better than the baseline)  
+
+### Graphical represantation of the model 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 11 Architecture</title>
+    <style>
+        body { font-family: sans-serif; background: #f0f0f0; padding: 20px; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #333; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Phase 11: Optimized Hybrid Architecture</h1>
+        <pre class="mermaid">
+graph TD
+    %% Inputs
+    User[User History] -->|Input| Split{Split Signal}
+    %% Branch 1: Self-History (Habit)
+    Split -->|Signal 1: Habit| Self[Self-History Module]
+    Self -->|Apply| Recency[Recency Decay]
+    Recency -->|Formula| Formula1["Score = 1 / (DaysAgo + 1)^0.7"]
+    Formula1 -->|Output| ScoreSelf[Self Score]
+    %% Branch 2: Collaborative (Social)
+    Split -->|Signal 2: Social| Collab[Collaborative Module]
+    Collab -->|Find| Neighbors[Find Neighbors]
+    Neighbors -->|Metric| Jaccard["Jaccard Similarity > 0.05"]
+    Jaccard -->|Aggregate| NeighborHist[Get Neighbor Histories]
+    NeighborHist -->|Output| ScoreSocial[Social Score]
+    %% Combination
+    ScoreSelf -->|Weight: 0.9| Mixer((Weighted Sum))
+    ScoreSocial -->|Weight: 0.1| Mixer
+    %% Output
+    Mixer -->|Result| FinalScore[Final Score]
+    FinalScore -->|Sort| Top10[Top 10 Recommendations]
+    %% Styling
+    style User fill:#8e24aa,stroke:#333,stroke-width:2px,color:#fff
+    style Mixer fill:#f57f17,stroke:#f66,stroke-width:4px,color:#fff
+    style Top10 fill:#2e7d32,stroke:#333,stroke-width:2px,color:#fff
+    style Recency fill:#1565c0,stroke:#333,color:#fff
+    style Neighbors fill:#1565c0,stroke:#333,color:#fff
+        </pre>
+    </div>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>
+
 
 ### The 3 Knobs We Tuned
 We tested 48 different combinations of these three parameters:
@@ -391,6 +447,9 @@ Meaning: This is the most critical finding. 90% of the signal comes from your ow
 #### The Final Mathematical Model
 With these optimal parameters, the final scoring function is:
 $$Score(u, i) = 0.9\cdot\underbrace{\left(\sum\frac{1}{(t+1)^{0.7}}\right)}{\text{Your Habit}} + 0.1\cdot\underbrace{\left(\sum{v\in Neighbors} Sim(u,v)\cdot Score_v(i)\right)}_{\text{Social Discovery}}$$
+
+
+## Example of a good and a bad recommendation 
 
 
 
