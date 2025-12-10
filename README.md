@@ -370,56 +370,39 @@ That achieve to get @MAP10 of 0.16815 (which is 10,02420991% better than the bas
 
 ### Graphical represantation of the model 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phase 11 Architecture</title>
-    <style>
-        body { font-family: sans-serif; background: #f0f0f0; padding: 20px; }
-        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        h1 { text-align: center; color: #333; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Phase 11: Optimized Hybrid Architecture</h1>
-        <pre class="mermaid">
+```mermaid
 graph TD
     %% Inputs
     User[User History] -->|Input| Split{Split Signal}
+
     %% Branch 1: Self-History (Habit)
     Split -->|Signal 1: Habit| Self[Self-History Module]
     Self -->|Apply| Recency[Recency Decay]
     Recency -->|Formula| Formula1["Score = 1 / (DaysAgo + 1)^0.7"]
     Formula1 -->|Output| ScoreSelf[Self Score]
+
     %% Branch 2: Collaborative (Social)
     Split -->|Signal 2: Social| Collab[Collaborative Module]
     Collab -->|Find| Neighbors[Find Neighbors]
     Neighbors -->|Metric| Jaccard["Jaccard Similarity > 0.05"]
     Jaccard -->|Aggregate| NeighborHist[Get Neighbor Histories]
     NeighborHist -->|Output| ScoreSocial[Social Score]
+
     %% Combination
     ScoreSelf -->|Weight: 0.9| Mixer((Weighted Sum))
     ScoreSocial -->|Weight: 0.1| Mixer
+
     %% Output
     Mixer -->|Result| FinalScore[Final Score]
     FinalScore -->|Sort| Top10[Top 10 Recommendations]
+
     %% Styling
     style User fill:#8e24aa,stroke:#333,stroke-width:2px,color:#fff
     style Mixer fill:#f57f17,stroke:#f66,stroke-width:4px,color:#fff
     style Top10 fill:#2e7d32,stroke:#333,stroke-width:2px,color:#fff
     style Recency fill:#1565c0,stroke:#333,color:#fff
     style Neighbors fill:#1565c0,stroke:#333,color:#fff
-        </pre>
-    </div>
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ startOnLoad: true });
-    </script>
-</body>
-</html>
+```
 
 
 ### The 3 Knobs We Tuned
