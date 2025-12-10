@@ -403,7 +403,11 @@ graph TD
     style Recency fill:#1565c0,stroke:#333,color:#fff
     style Neighbors fill:#1565c0,stroke:#333,color:#fff
 ```
-
+How to Read This Graph
+1) The Split: The user's history is processed in two parallel ways.
+2) Left Path (Habit): We look at your past. We apply Recency Decay ($\alpha=0.7$), meaning books you read yesterday are extremely important, while books from last year are less so. This accounts for 90% of the final score.
+3) Right Path (Social): We look at others. We find users who read at least 5% of the same books as you. We see what else they read and recommend those books. This accounts for 10% of the score.
+4) The Mixer: We combine these two scores. The heavy weight on the Left Path (0.9) reflects our finding that re-borrowing recent books is the strongest predictor of future behavior.
 
 ### The 3 Knobs We Tuned
 We tested 48 different combinations of these three parameters:
