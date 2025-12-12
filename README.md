@@ -7,18 +7,18 @@ In other words, the goal is to code a suggestion algorithm that is the most accu
 To get it better i strongly suggest you read the readme ⬇⬇⬇⬇
 
 ## Structure of the repository:
-"**Recommender 1.1.py**" -> the recommender (our best recommender system)<br>
-**"all_in_one_enrichment.py"** -> the file where we merged all our enrichment work<br>
-**items_enriched.csv** -> the enriched books dataset<br>
-**interactions.csv** -> the original interactions dataset<br>
-**items.csv** -> the original books dataset
+**- "Recommender 1.1.py"** -> the recommender (our best recommender system)<br>
+**- "all_in_one_enrichment.py"** -> the file where we merged all our enrichment work<br>
+**- "items_enriched.csv"** -> the enriched books dataset<br>
+**- "interactions.csv"** -> the original interactions dataset<br>
+**"- items.csv"** -> the original books dataset
 
-The **book_user_history.csv** is a modified version of the interactions.csv that give for every books all the user that borrowed them and the date of the interactions as well. The **user_borrowing_history.csv** is also a modified version of interactions.csv that gives us all the books borrowed by each user and the date of every of the interaction
+The **"book_user_history.csv"** is a modified version of the interactions.csv that give for every books all the user that borrowed them and the date of the interactions as well. The **"user_borrowing_history.csv"** is also a modified version of interactions.csv that gives us all the books borrowed by each user and the date of every of the interaction
 
 All the other files are the the specific parts of the enrichment / data cleanning work that are split into pieces if one specifique part is needed in the data cleaning enrichment so you don't need to run the entire all_in_one_enrichment.py. But for clarity we decided to remove them from the repository they were 13 unecessary file. We can still provide them if asked !
 
 ## About the data cleaning and the making of items_enriched.csv
-Everything is in the **all_in_one_enrichment.py** -> **WARNINGS** if you try to run it don't forget to change the directory in the data importation part at the beginning to make sur it matches your local environment.  
+Everything is in the **"all_in_one_enrichment.py"** -> **WARNINGS** if you try to run it don't forget to change the directory in the data importation part at the beginning to make sur it matches your local environment.  
 
 Executive Summary
 This document details the complete data cleaning and enrichment pipeline applied to a book recommendation dataset. The process transformed a sparse, incomplete dataset into a rich, feature-complete resource suitable for building recommendation systems.
@@ -37,7 +37,7 @@ Source: items.csv (15,291 books)
 Interactions: interactions.csv (87,047 user-book interactions)
 
 Final Enriched Dataset
-Output: items_enriched.csv (15,109 books)
+Output: **"items_enriched.csv"** (15,109 books)
 Filter Applied: Removed 182 books with zero interactions
 Rationale: Focus on books with actual user engagement
 
