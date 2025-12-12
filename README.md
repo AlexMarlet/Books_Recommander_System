@@ -7,8 +7,8 @@ In other words, the goal is to code a suggestion algorithm that is the most accu
 To get it better i strongly suggest you read the readme ⬇⬇⬇⬇
 
 ## Structure of the repository:
-**Recommender 1.1.py** -> the recommender (our best recommender system)<br>
-**all_in_one_enrichment.py** -> the file where we merged all our enrichment work<br>
+"**Recommender 1.1.py**" -> the recommender (our best recommender system)<br>
+**"all_in_one_enrichment.py"** -> the file where we merged all our enrichment work<br>
 **items_enriched.csv** -> the enriched books dataset<br>
 **interactions.csv** -> the original interactions dataset<br>
 **items.csv** -> the original books dataset
