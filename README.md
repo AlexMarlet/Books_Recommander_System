@@ -18,6 +18,7 @@ The **book_user_history.csv** is a modified version of the interactions.csv that
 All the other files are the the specific parts of the enrichment / data cleanning work that are split into pieces if one specifique part is needed in the data cleaning enrichment so you don't need to run the entire all_in_one_enrichment.py. But for clarity we decided to remove them from the repository they were 13 unecessary file. We can still provide them if asked !
 
 ## About the data cleaning and the making of items_enriched.csv
+Everything is in the **all_in_one_enrichment.py** -> **WARNINGS** if you try to run it don't forget to change the directory in the data importation part at the beginning to make sur it matches your local environment.  
 
 Executive Summary
 This document details the complete data cleaning and enrichment pipeline applied to a book recommendation dataset. The process transformed a sparse, incomplete dataset into a rich, feature-complete resource suitable for building recommendation systems.
