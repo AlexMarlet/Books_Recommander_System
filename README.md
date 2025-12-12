@@ -15,6 +15,8 @@ To get it better i strongly suggest you read the readme ⬇⬇⬇⬇
 
 The **"book_user_history.csv"** is a modified version of the interactions.csv that give for every books all the user that borrowed them and the date of the interactions as well. The **"user_borrowing_history.csv"** is also a modified version of interactions.csv that gives us all the books borrowed by each user and the date of every of the interaction
 
+The **"submission.csv"** is the result of our recommender that we submitted for the kaggle competition
+
 All the other files are the the specific parts of the enrichment / data cleanning work that are split into pieces if one specifique part is needed in the data cleaning enrichment so you don't need to run the entire all_in_one_enrichment.py. But for clarity we decided to remove them from the repository they were 13 unecessary file. We can still provide them if asked !
 
 ## About the data cleaning and the making of items_enriched.csv
