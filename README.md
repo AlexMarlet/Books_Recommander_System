@@ -6,6 +6,17 @@ In other words, the goal is to code a suggestion algorithm that is the most accu
 
 To get it better i strongly suggest you read the readme ⬇⬇⬇⬇
 
+## Structure of the repository:
+**Recommender 1.1.py** -> the recommender (our best recommender system)
+**all_in_one_enrichment.py** -> the file where we merged all our enrichment work 
+**items_enriched.csv** -> the enriched books dataset
+**interactions.csv** -> the original interactions dataset
+**items.csv** -> the original books dataset
+
+The **book_user_history.csv** is a modified version of the interactions.csv that give for every books all the user that borrowed them and the date of the interactions as well. The **user_borrowing_history.csv** is also a modified version of interactions.csv that gives us all the books borrowed by each user and the date of every of the interaction
+
+All the other files are the the specific parts of the enrichment / data cleanning work that are split into pieces if one specifique part is needed in the data cleaning enrichment so you don't need to run the entire all_in_one_enrichment.py. But for clarity we decided to remove them from the repository they were 13 unecessary file. We can still provide them if asked !
+
 ## About the data cleaning and the making of items_enriched.csv
 
 Executive Summary
@@ -77,8 +88,8 @@ Success rate: ~85% for ISBN queries, ~40% for title queries
 Purpose: Load data and filter relevant books
 
 Actions:
-Loaded items.csv (15,291 books)
-Loaded interactions.csv (87,047 interactions)
+Loaded **items.csv** (15,291 books)
+Loaded **interactions.csv** (87,047 interactions)
 
 Identified borrowed books (books with ≥1 interaction)
 Filtered dataset to borrowed books only
@@ -291,9 +302,9 @@ Books without standardized categorization
 ## Using the Enriched Dataset
 File Structure
 Kaggle_datas/
--> items_enriched.csv          # ← USE THIS (enriched dataset)
--> interactions.csv            # User-book interactions
--> all_in_one_enrichment.py   # Enrichment pipeline (reference)
+-> **items_enriched.csv**          # ← USE THIS (enriched dataset)
+-> **interactions.csv**           # User-book interactions
+-> **all_in_one_enrichment.py**   # Enrichment pipeline (reference)
 
 I first did the enrichment / Cleanning with each part in a different files so i can rerun only one part of the all process (to avoid running again an API call of 18 000 calls (Which can last ≈8 hours 😅) 
 But in order to make it simple and clear in this repository i merged them all in the "all_in_one_enrichement.py" file so if you want to try the recommender system from the real original dataset "items.csv" and loose ≈20h to 35h instead of using the already clean/enriched version of the data base named "items_enriched.csv" you can...
@@ -350,8 +361,8 @@ Result: A clean, feature-rich dataset suitable for building high-quality recomme
 ## For the "interactions.csv" file
 We have changed the time format to an understandable one
 Then create to new file: 
-- "user_borrowing_history.csv" that gives us all the books borrowed by each user and the date of every of the interaction
-- "book_user_history.csv" that give for every books all the user that borrowed them and the date of the interactions as well
+- "**user_borrowing_history.csv**" that gives us all the books borrowed by each user and the date of every of the interaction
+- "**book_user_history.csv**" that give for every books all the user that borrowed them and the date of the interactions as well
   
 # The Recommender System
 The baseline is a @MAP10 score of 0.15283
@@ -434,13 +445,5 @@ Meaning: This is the most critical finding. 90% of the signal comes from your ow
 #### The Final Mathematical Model
 With these optimal parameters, the final scoring function is:
 $$Score(u, i) = 0.9\cdot\underbrace{\left(\sum\frac{1}{(t+1)^{0.7}}\right)}{\text{Your Habit}} + 0.1\cdot\underbrace{\left(\sum{v\in Neighbors} Sim(u,v)\cdot Score_v(i)\right)}_{\text{Social Discovery}}$$
-
-
-## Example of a good and a bad recommendation 
-
-
-
-
-
 
 Last Updated: December 2025
