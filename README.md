@@ -381,6 +381,7 @@ We found that 26.47% of all interactions are re-borrows. Whiche is very importan
 
 ## Our best recommender at the moment:
 That achieve to get **@MAP10 of 0.16815** (which is 10,02420991% better than the baseline)  
+That allow us to get the 13th place (13/25)
 
 ### Graphical represantation of the model ###
 
