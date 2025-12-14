@@ -450,20 +450,6 @@ Meaning: This is the most critical finding. 90% of the signal comes from your ow
 With these optimal parameters, the final scoring function is:
 $$Score(u, i) = 0.9\cdot\underbrace{\left(\sum\frac{1}{(t+1)^{0.7}}\right)}{\text{Your Habit}} + 0.1\cdot\underbrace{\left(\sum{v\in Neighbors} Sim(u,v)\cdot Score_v(i)\right)}_{\text{Social Discovery}}$$
 
-## 🔍 Qualitative Analysis: Good vs. Bad Recommendations
-
-To understand *why* our model works, we analyzed specific user cases.
-
-### A "Good" Recommendation (The Semantic Win)
-**User Profile:** A user who borrowed *La fin de la plainte* (Psychoanalysis) and *Oeuvres romanesques* (Classic Literature).
-**Recommendation:** *Le problème de l'empathie* (Philosophy/Psychology).
-**Why it worked:** Our Hybrid model successfully detected the intersection of "Psychology" and "Philosophy" using the BERT embeddings. A pure "Popularity" model would have recommended *Harry Potter*, which would have been irrelevant for this intellectual profile.
-
-### A "Bad" Recommendation (The Cold Start Failure)
-**User Profile:** A user with only 1 interaction (a very niche local gardening book).
-**Recommendation:** *The Da Vinci Code* (Global Bestseller).
-**Why it failed:** Because the user had insufficient history (sparsity), the collaborative filtering component failed to find "neighbors." The model fell back to "Global Popularity," recommending a generic bestseller that likely doesn't match the user's specific interest in gardening.
-**Fix:** This justifies our "Discovery Mode" in the app, where users can manually select categories to override this cold-start limitation.
 
 ## Execution Guide to run our project correctly
 
