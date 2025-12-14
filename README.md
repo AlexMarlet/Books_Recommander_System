@@ -482,5 +482,8 @@ Existing User Mode: Select a User ID from the dataset to see personalized recomm
 
 Discovery Mode (Cold Start): Instead of a user ID, select your 3 favorite categories manually. This simulates a new user and recommends books based purely on genre preferences.
 
+Data Insights
+
+Select this option in the sidebar to view a dashboard of our data of our findings.
 
 Last Updated: December 2025
