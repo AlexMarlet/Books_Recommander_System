@@ -467,6 +467,7 @@ First, navigate into the app folder, then run the Streamlit application:
 
 
 cd app
+
 streamlit run app.py
 
 3. Usage
