@@ -380,7 +380,7 @@ Important points:
 We found that 26.47% of all interactions are re-borrows. Whiche is very important as some model systematicly exclude already borrowed books thinking Users would like new books. But it's not the case. 
 
 ## Our best recommender at the moment:
-That achieve to get @MAP10 of 0.16815 (which is 10,02420991% better than the baseline)  
+That achieve to get **@MAP10 of 0.16815** (which is 10,02420991% better than the baseline)  
 
 ### Graphical represantation of the model ###
 
