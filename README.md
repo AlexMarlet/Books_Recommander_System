@@ -486,4 +486,9 @@ Data Insights:
 
 Select this option in the sidebar to view data on our findings.
 
+# Video of our work
+
+In the link below, you will find the video summarizing our project. Enjoy watching!
+https://www.youtube.com/watch?v=d-T3ZXmGz_M
+
 Last Updated: December 2025
