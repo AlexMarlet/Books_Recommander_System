@@ -474,7 +474,7 @@ streamlit run app.py
 
 The app should automatically open in your browser at http://localhost:8501. Use the sidebar to switch between two main experiences:
 
-Interactive Book (The AI Librarian)
+Interactive Book (The AI Librarian):
 
 This is the main interface where you can test our recommendation engine in two ways:
 
@@ -482,8 +482,8 @@ Existing User Mode: Select a User ID from the dataset to see personalized recomm
 
 Discovery Mode (Cold Start): Instead of a user ID, select your 3 favorite categories manually. This simulates a new user and recommends books based purely on genre preferences.
 
-Data Insights
+Data Insights:
 
-Select this option in the sidebar to view a dashboard of our data of our findings.
+Select this option in the sidebar to view data on our findings.
 
 Last Updated: December 2025
